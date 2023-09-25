@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Restaurant from './pages/Restaurant';
 import Add from './pages/Add';
 import Search from './pages/Search';
+import  Update  from './pages/Update';
 
 
 function App() {
@@ -15,9 +16,10 @@ function App() {
         <NavBar/>
         <div className='App'>
           <Routes>
-              <Route path ="/home" element={<Restaurant />} />
+              <Route path ="/" element={<Restaurant />} />
               <Route path ="/Add" element={<Add />}  />
               <Route path ="/Search" element={<Search />}  />
+              <Route path ="/update/:reastaurantId" element={<Update />}  />
           </Routes>
         </div>
      </BrowserRouter>
