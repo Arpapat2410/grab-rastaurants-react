@@ -6,12 +6,13 @@ import Restaurant from './pages/Restaurant';
 import Add from './pages/Add';
 import Search from './pages/Search';
 import  Update  from './pages/Update';
-
+import { SearchProvider } from './hooks/SearchContext';
 
 function App() {
 
   return (
     <>
+    <SearchProvider>
      <BrowserRouter>
         <NavBar/>
         <div className='App'>
@@ -19,10 +20,11 @@ function App() {
               <Route path ="/" element={<Restaurant />} />
               <Route path ="/Add" element={<Add />}  />
               <Route path ="/Search" element={<Search />}  />
-              <Route path ="/update/:reastaurantId" element={<Update />}  />
+              <Route path ="/update/:restaurantId" element={<Update />}  />
           </Routes>
         </div>
      </BrowserRouter>
+     </SearchProvider>
     </>
   )
 }
