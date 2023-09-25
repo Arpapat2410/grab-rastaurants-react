@@ -6,13 +6,13 @@ import Restaurant from './pages/Restaurant';
 import Add from './pages/Add';
 import Search from './pages/Search';
 import  Update  from './pages/Update';
-import { SearchProvider } from './hooks/SearchContext';
+
 
 function App() {
 
   return (
     <>
-    <SearchProvider>
+    
      <BrowserRouter>
         <NavBar/>
         <div className='App'>
@@ -24,7 +24,6 @@ function App() {
           </Routes>
         </div>
      </BrowserRouter>
-     </SearchProvider>
     </>
   )
 }
