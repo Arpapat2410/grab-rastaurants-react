@@ -35,13 +35,14 @@ const Search = () => {
   return (
     <div className="container">
       <h1>Search Restaurants</h1>
-      <div className="row form">
-        <div className="col-6 card justify-content-center">
-          <h5 className="card-header">Find Restaurants</h5>
-          <div className="card-body"></div>
+      <div className='row form'>
+        <div className='card-add'>
+        <div className='col-12 justify-content-center'>
+          <h5 className='card-header'>Find what you want</h5>
+          <div className='card-body'>
           <form>
             <div className="form-group">
-              <label htmlFor="searchTerm">Search term</label>
+              
               <input
                 type="text"
                 className="form-control"
@@ -50,7 +51,7 @@ const Search = () => {
                 onChange={handleSearchTermChange}
               />
             </div>
-            <br />
+           
             <button className="btn btn-primary" onClick={handleSearch}>
               Search
             </button>
@@ -59,7 +60,7 @@ const Search = () => {
           <ul>
             {restaurants.map((restaurant) => (
               <li key={restaurant.id}>
-                <Link to={`/restaurant/${restaurant.id}`}>
+                <Link to={`/restaurants/${restaurant.id}`}>
                   {restaurant.name} - {restaurant.type}
                 </Link>
               </li>
@@ -67,6 +68,8 @@ const Search = () => {
           </ul>
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 };

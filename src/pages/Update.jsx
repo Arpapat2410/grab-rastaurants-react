@@ -50,13 +50,12 @@ const Update = () => {
         }
     };
     
-    
-
       return (
         <div className='container'>
           <h1>Grab Reataurant</h1>
           <div className='row form'>
-            <div className='col-10 justify-content-center'>
+        <div className='card-add'>
+        <div className='col-12 justify-content-center'>
               <h5 className='card-header'>Add New Restaurant</h5>
               <div className='error'>{error && "someting went erong !!!"}</div>
               <div className='card-body'>
@@ -105,6 +104,7 @@ const Update = () => {
                 </form>
               </div>
             </div>
+          </div>
           </div>
         </div>
       )

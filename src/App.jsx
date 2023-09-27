@@ -6,13 +6,12 @@ import Restaurant from './pages/Restaurant';
 import Add from './pages/Add';
 import Search from './pages/Search';
 import  Update  from './pages/Update';
-
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 function App() {
-
   return (
-    <>
-    
+
      <BrowserRouter>
         <NavBar/>
         <div className='App'>
@@ -21,10 +20,12 @@ function App() {
               <Route path ="/Add" element={<Add />}  />
               <Route path ="/Search" element={<Search />}  />
               <Route path ="/update/:restaurantId" element={<Update />}  />
+              <Route path ="/SignIn" element={<SignIn />}  />
+              <Route path ="/SignUp" element={<SignUp />}  />
           </Routes>
         </div>
      </BrowserRouter>
-    </>
+   
   )
 }
 

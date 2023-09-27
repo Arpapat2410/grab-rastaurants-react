@@ -21,6 +21,12 @@ function NavBar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/Search">Search</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/SignIn">SignIn</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/SignUp">SignUp</Link>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input 
