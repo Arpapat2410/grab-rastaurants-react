@@ -1,9 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import authService from '../services/auth.service.js';
+import { useAuthContext } from '../context/AuthContext.jsx';
 
-function NavBar() {
+const NavBar = () => {
+    const {user,logout } = useAuthContext();
+    const handleLogout = () => {
+        logout();
+        const navigate = useNavigate();
+        const handleLogout = () => {
+            Logout();
+            navigate("/signin")
+        }
+    }
     return (
-
         <nav className="navbar navbar-expand-lg navbar-tertiary bg-tertiary">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Grad Restaurant</Link>
@@ -15,28 +25,45 @@ function NavBar() {
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
+
+                        {user && user.roles.includes("ROLES_ADMIN") &&(
                         <li className="nav-item">
                             <Link className="nav-link" to="/Add">Add</Link>
                         </li>
+                        )}
+
                         <li className="nav-item">
                             <Link className="nav-link" to="/Search">Search</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/SignIn">SignIn</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/SignUp">SignUp</Link>
-                        </li>
+                        
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input 
-                            class="form-control me-2" 
-                            type="search" 
-                            placeholder="Search" 
-                            aria-label="Search"/>
-                        <div className='button-search'>
-                        <button class="btn btn-success" type="submit">Search</button>
-                        </div>
+                    <form className="d-flex">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    {!user &&(
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/SignUp">
+                            <button type="button" class="btn btn-success" style={{padding:"2px" , marginLeft : "80px"}} >SignUp</button>
+                            </Link>
+                        </li>
+                    )}
+                    {!user &&(
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/SignIn">
+                            <button type="button" class="btn btn-success" style={{padding:"2px"}} >SignIn</button>
+                            </Link>
+                        </li>
+                    )}
+                    {user &&(
+                       
+                        <li className='nav-item'>
+                            Wellcome ,
+                            <span className='mr-sm2 h4' ><Link to={"/profile"} style={{textDecoration:"none", color : "green"  }}> {user.username} </Link></span>
+                            <button type="button" class="btn btn-outline-danger " style={{padding:"2px"}} onClick={handleLogout}>Logout</button>
+                        </li>
+                       
+                    )}
+                    </ul>
+                      
                     </form>
                 </div>
             </div>

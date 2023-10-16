@@ -1,6 +1,7 @@
 import  React ,{ useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios'
+import authHeader from '../services/auth-header';
 
 
 const URL = import.meta.env.VITE_BASE_URL;
@@ -11,6 +12,7 @@ const config = {
         username: USERNAME,
         password: PASSWORD,
     },
+    headers : authHeader ()
 };
 
 const Add= () => {
